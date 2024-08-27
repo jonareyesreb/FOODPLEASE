@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h2 class="mb-4">Seleccionar Rol</h2>
+    <form method="post" class="d-inline-block">
+        {% csrf_token %}
+        <div class="mb-3">
+            
+            <select name="rol" id="rol" class="form-select form-select-lg mb-3">
+                <option value="cliente">Cliente</option>
+                <option value="repartidor">Repartidor</option>
+                <option value="restaurante">Restaurante</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">
+            <i class="bi bi-box-arrow-in-right"></i> Acceder
+        </button>
+    </form>
+    <div class="mt-4">
+        <a href="{% url 'inicio' %}" class="btn btn-secondary btn-sm">
+            <i class="bi bi-arrow-left"></i> Volver al Inicio
+        </a>
+    </div>
+</div>
+{% endblock %}

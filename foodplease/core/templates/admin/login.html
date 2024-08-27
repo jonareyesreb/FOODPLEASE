@@ -1,0 +1,25 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block title %}Bienvenido al Panel de Administración de FoodPlease{% endblock %}
+
+{% block content_title %}Bienvenido al Panel de Administración de FoodPlease{% endblock %}
+
+{% block content %}
+<div id="content-main">
+    <form action="{% url 'admin:login' %}" method="post" id="login-form">
+        {% csrf_token %}
+        <div class="form-row">
+            {{ form.username.label_tag }}
+            {{ form.username }}
+        </div>
+        <div class="form-row">
+            {{ form.password.label_tag }}
+            {{ form.password }}
+        </div>
+        <div class="form-row submit-row">
+            <input type="submit" value="{% trans 'Log in' %}" />
+        </div>
+    </form>
+</div>
+{% endblock %}
